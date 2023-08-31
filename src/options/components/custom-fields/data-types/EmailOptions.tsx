@@ -13,12 +13,12 @@ options.fields = [];
 options.fields.push({ ...DEFAULT_EMAIL_CUSTOM_FIELD });
 options.fields.push({
   type: "username",
-  name: "Username",
+  name: "Юзернейм",
   match: ["user"],
 });
 options.fields.push({
   type: "full-name",
-  name: "Full Name",
+  name: "Полное имя",
   match: ["name"],
 });
 
