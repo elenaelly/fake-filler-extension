@@ -14,32 +14,32 @@ type Props = {
   customFields: ICustomField[];
 };
 
-const MAX_CUSTOM_FIELDS = 25;
+const MAX_CUSTOM_FIELDS = 700;
 
 export default function CustomFieldsView(props: Props): JSX.Element {
   const { isProEdition, profileIndex, customFields } = props;
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [getProModalIsOpen, setGetProModalIsOpen] = useState(false);
-  const [customFieldIndex, setCustomFieldIndex] = useState(-1);
+  const [customFieldIndex, setCustomFieldIndex] = useState(1);
   const [customField, setCustomField] = useState<ICustomField | null>(null);
   const [actionType, setActionType] = useState<"create" | "edit" | undefined>();
 
   const dispatch = useDispatch();
 
-  const allowAdd = isProEdition || profileIndex === -1;
-  const allowEdit = isProEdition || profileIndex === -1;
+  const allowAdd = isProEdition || profileIndex === 1;
+  const allowEdit = isProEdition || profileIndex === 1;
 
   function closeModal(): void {
     setModalIsOpen(false);
     setCustomField(null);
     setActionType(undefined);
-    setCustomFieldIndex(-1);
+    setCustomFieldIndex(1);
   }
 
   function newCustomField(index: number): void {
     if (allowEdit) {
-      if (!isProEdition && props.customFields.length >= MAX_CUSTOM_FIELDS) {
+      if (props.customFields.length >= MAX_CUSTOM_FIELDS) {
         setGetProModalIsOpen(true);
       } else {
         setCustomFieldIndex(index);
