@@ -3,7 +3,7 @@ import { IFakeFillerOptions, ICustomField } from "src/types";
 
 // spell-checker:disable
 
-const DEFAULT_TELEPHONE_TEMPLATE = "+1 (XxX) XxX-XxxX";
+const DEFAULT_TELEPHONE_TEMPLATE = "+7 (9xx) xxx-xx-xx";
 
 export const CURRENT_SETTINGS_VERSION = 1;
 
@@ -75,7 +75,7 @@ const FakeFillerDefaultOptions = (): IFakeFillerOptions => {
 
   options.fields.push({
     type: "full-name",
-    name: "Full Name",
+    name: "Полное имя",
     match: ["fullname", "name"],
   });
 
