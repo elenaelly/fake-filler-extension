@@ -30,43 +30,34 @@ const ProfilesView: React.FC<Props> = (props) => {
   }
 
   function newProfile(): void {
-    if (isProEdition) {
       setProfile(undefined);
       setActionType("create");
       setModalIsOpen(true);
     }
-  }
 
   function handleEdit(): void {
-    if (isProEdition) {
       setProfile(profiles[profileIndex]);
       setActionType("edit");
       setModalIsOpen(true);
     }
-  }
 
   function handleDelete(): void {
-    if (isProEdition) {
-      // eslint-disable-next-line no-alert
-      if (profileIndex >= 0 && window.confirm(GetMessage("profile_delete_confirm_message"))) {
+       if (profileIndex >= 0 && window.confirm(GetMessage("profile_delete_confirm_message"))) {
         dispatch(deleteProfile(profileIndex));
         history.push("/custom-fields");
       }
     }
-  }
 
   function handleSave(formValues: IProfile): void {
-    if (isProEdition) {
-      if (actionType === "edit") {
+        if (actionType === "edit") {
         dispatch(saveProfile(formValues, profileIndex));
       } else {
         dispatch(createProfile(formValues));
       }
       closeModal();
     }
-  }
 
-  if (!isProEdition && profiles.length === 0) {
+  if (profiles.length === 0) {
     return <>{props.children}</>;
   }
 
@@ -100,7 +91,7 @@ const ProfilesView: React.FC<Props> = (props) => {
         <div className="col-9">
           {profileIndex >= 0 && (
             <>
-              {!isProEdition && (
+              {(
                 <div className="alert alert-warning">
                   {GetMessage("profile_thisProfileDisabled")}{" "}
                   <a className="alert-link" href="https://fakefiller.com/#pricing">
@@ -108,7 +99,7 @@ const ProfilesView: React.FC<Props> = (props) => {
                   </a>
                 </div>
               )}
-              {isProEdition && (
+              {(
                 <div className="float-right">
                   <button type="button" className="btn btn-sm btn-link" onClick={handleEdit}>
                     <img src="images/edit.svg" width="12" height="12" alt={GetMessage("edit")} />
@@ -126,7 +117,7 @@ const ProfilesView: React.FC<Props> = (props) => {
 
           {props.children}
 
-          {isProEdition && profileIndex >= 0 && (
+          {profileIndex >= 0 && (
             <div className="text-center mt-5">
               <button type="button" onClick={handleDelete} className="btn btn-sm btn-outline-danger">
                 {GetMessage("profiles_delete_button_label")}

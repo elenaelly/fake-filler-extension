@@ -15,16 +15,16 @@ const GetProModal = (props: Props) => {
         <Modal.Title>{GetMessage("upgradeToFakeFillerPro")}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <p>You need to upgrade to Fake Filler Pro to create more than 25 custom fields.</p>
+        <p>Чтобы создать больше полей, купите подписку Fake Filler Pro </p>
 
         <div className="alert alert-info">
-          <p>By upgrading to Fake Filler Pro, you unlock these amazing features:</p>
+          <p>С подпиской Fake Filler Pro, вы сможете:</p>
           <ul>
             <li>
-              Create <b>UNLIMITED</b> custom fields.
+              Создавать <b>НЕОГРАНИЧЕННОЕ</b> количество полей.
             </li>
-            <li>Sync your settings across all you browsers</li>
-            <li>Create URL-specific custom fields (multiple profiles)</li>
+            <li>Синхронизировать и сохранять настройки</li>
+            <li>Создавать поля по URL (много профилей)</li>
           </ul>
         </div>
       </Modal.Body>

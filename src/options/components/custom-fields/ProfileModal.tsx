@@ -19,10 +19,10 @@ const validate = (values: IProfile): FormikErrors<IProfile> => {
     const expression = values.urlMatch.trim();
     try {
       if (!new RegExp(expression)) {
-        errors.urlMatch = "Please enter a valid regular expression.";
+        errors.urlMatch = "Введите корректное регулярное выражение";
       }
     } catch (e) {
-      errors.urlMatch = "Please enter a valid regular expression.";
+      errors.urlMatch = "Введите валидное регулярное выражение";
     }
   }
 

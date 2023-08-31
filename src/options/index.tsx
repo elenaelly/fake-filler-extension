@@ -9,10 +9,10 @@ import App from "src/options/components/App";
 import Store from "src/options/store";
 import { FirebaseUser, FirebaseCustomClaims, IFakeFillerOptions } from "src/types";
 
-let isProEnabled = false;
+let isProEnabled = true;
 
 function handleAuthStateChange(user: FirebaseUser, claims: FirebaseCustomClaims) {
-  isProEnabled = claims ? claims.subscribed : false;
+  isProEnabled = claims ? claims.subscribed : true;
   Store.dispatch(updateAuthState(user, claims));
 }
 

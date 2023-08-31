@@ -15,7 +15,7 @@ const DataTypeSelectField = () => {
     switch (value) {
       case "telephone":
         if (!form.values.telephoneTemplate) {
-          form.setFieldValue("telephoneTemplate", "+1 (XxX) XxX-XxxX");
+          form.setFieldValue("telephoneTemplate", "+7 (9xx) xxx-xx-xx");
         }
         break;
 
@@ -29,7 +29,7 @@ const DataTypeSelectField = () => {
 
       case "date":
         if (!form.values.dateTemplate) {
-          form.setFieldValue("dateTemplate", "DD-MMM-YYYY");
+          form.setFieldValue("dateTemplate", "DD.MM.YYYY");
         }
         if (!form.values.dateMin && !form.values.dateMinDate) {
           form.setFieldValue("dateMin", "");
@@ -45,7 +45,7 @@ const DataTypeSelectField = () => {
         if (!form.values.textMin && !form.values.textMax) {
           form.setFieldValue("textMin", 1);
           form.setFieldValue("textMax", 20);
-          form.setFieldValue("textMaxLength", 50);
+          form.setFieldValue("textMaxLength", 250);
         }
         break;
 
